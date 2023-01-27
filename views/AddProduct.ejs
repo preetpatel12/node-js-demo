@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Add Product</title>
+
+  <link rel="stylesheet" type="text/css" href="./../assets/index.css">
+</head>
+
+<body>
+  <div>
+    <%-include('Navbar.ejs',{title:"Madhava"}) %>
+  </div>
+  <form action="<%- edit?'/update/'+product[0].id:'/product' %>" class="form" style="margin: 2rem;" method="post">
+   
+    <div class="form-outline mb-4">
+      <label class="form-label" for="form4Example1">Name</label>
+      <input type="text" class="form-control" name="name" placeholder="Enter product name" value="<%- product.length?product[0].name:'' %>" required/>
+    </div>
+  
+    <div class="form-outline mb-4">
+      <label class="form-label" for="form4Example2">Price</label>
+      <input type="number" class="form-control"  name="price" placeholder="Enter Price" value="<%- product.length?product[0].price:'' %>" required/>
+    </div>
+    <div class="form-outline mb-4">
+      <label class="form-label" for="form4Example2">Image-Url</label>
+      <input type="text" class="form-control"  name="ImageUrl" placeholder="Enter product image url" value ="<%- product.length?product[0].url:'' %>" required />
+    </div>
+  
+    <div class="form-outline mb-4">
+      <label class="form-label" for="form4Example2">Description</label>
+      <textarea class="form-control" name="description" placeholder="Enter product description" rows="3" required><%- product.length?product[0].descirption:'' %></textarea>
+    </div>
+    <!-- Submit button -->
+    <button type="submit" class="btn btn-primary btn-block mb-4"> <%- edit?'Edit Product':'Add Product' %></button>
+  </form>
+</body>
+
+</html>
